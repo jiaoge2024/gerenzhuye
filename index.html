@@ -985,8 +985,6 @@
             }
         }
     </style>
-    <!-- 配置文件（包含API Key，不会提交到GitHub） -->
-    <script src="./config.js"></script>
 </head>
 <body>
     <div class="toolbar">
@@ -1251,9 +1249,27 @@
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
 
-        // 从配置文件读取 API Key（安全方案）
-        const API_KEY = window.APP_CONFIG.API_KEY;
-        const API_URL = window.APP_CONFIG.API_URL;
+        // API 配置（从 Vercel 环境变量获取）
+        let API_KEY = '';
+        let API_URL = 'https://api.deepseek.com/chat/completions';
+
+        // 页面加载时获取配置
+        async function loadConfig() {
+            try {
+                const response = await fetch('/api/config');
+                if (response.ok) {
+                    const config = await response.json();
+                    API_KEY = config.API_KEY;
+                    API_URL = config.API_URL || API_URL;
+                    console.log('配置加载成功');
+                }
+            } catch (error) {
+                console.error('配置加载失败:', error);
+            }
+        }
+        
+        // 页面加载时立即获取配置
+        loadConfig();
 
         const SYSTEM_PROMPT = `你是焦哥的数字分身，用来在个人主页里回答访客关于焦哥的问题。
 
