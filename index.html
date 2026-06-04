@@ -267,13 +267,35 @@
         .account-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            flex-wrap: wrap;
+            gap: 8px;
             background: var(--bg-primary);
             padding: 6px 14px;
             border-radius: 18px;
             font-size: 12px;
             font-weight: 500;
             margin-top: 10px;
+        }
+
+        .account-badge span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .badge-separator {
+            color: var(--text-tertiary);
+            font-weight: 300;
+        }
+
+        .badge-link {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .badge-link:hover {
+            color: var(--accent);
+            transform: translateY(-1px);
         }
 
         .profile-section {
@@ -301,6 +323,50 @@
             font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.6;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .stat-item {
+            background: var(--bg-primary);
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--accent);
+        }
+
+        .stat-icon {
+            font-size: 24px;
+        }
+
+        .stat-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
         }
 
         .skills-grid {
@@ -919,6 +985,8 @@
             }
         }
     </style>
+    <!-- 配置文件（包含API Key，不会提交到GitHub） -->
+    <script src="./config.js"></script>
 </head>
 <body>
     <div class="toolbar">
@@ -946,14 +1014,45 @@
                         <span class="arrow">→</span>
                         <span>AI智能体玩家</span>
                     </p>
-                    <div class="account-badge">📱 公众号【焦哥AI智能体】</div>
+                    <div class="account-badge">
+                        <span>📱 公众号【焦哥AI智能体】</span>
+                        <span class="badge-separator">|</span>
+                        <a href="https://www.xiaohongshu.com/user/profile/63ec44630000000026006bf3" target="_blank" class="badge-link">📕 小红书【焦哥丨诗画AI】</a>
+                    </div>
                 </div>
             </div>
 
             <div class="profile-section">
                 <div class="section-headline">帮你用AI提效，从造价到智能体</div>
                 <div class="section-content">
-                    12年工程造价行业经验，专注于AI工具实用技巧分享，帮助更多造价人/职场人用AI提效。
+                    山东聊城人，在北京12年。12年工程造价行业经验，两个儿子的爸爸。工具控，喜欢自己动手做东西。现在一边做造价主业，一边做AI自媒体。
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <div class="section-label">自媒体数据</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-icon">📱</div>
+                        <div class="stat-info">
+                            <div class="stat-value">1000+</div>
+                            <div class="stat-label">公众号粉丝</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">📕</div>
+                        <div class="stat-info">
+                            <div class="stat-value">6000+</div>
+                            <div class="stat-label">小红书粉丝</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-info">
+                            <div class="stat-value">12年</div>
+                            <div class="stat-label">造价经验</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -961,11 +1060,13 @@
                 <div class="section-label">擅长领域</div>
                 <div class="skills-grid">
                     <span class="skill-tag">AI智能体搭建</span>
-                    <span class="skill-tag">Coze工作流</span>
+                    <span class="skill-tag">AI工具开发</span>
+                    <span class="skill-tag">AI儿童科普</span>
                     <span class="skill-tag">AI代写</span>
                     <span class="skill-tag">AI绘画</span>
-                    <span class="skill-tag">Skill安装使用</span>
+                    <span class="skill-tag">Coze工作流</span>
                     <span class="skill-tag">公众号运营</span>
+                    <span class="skill-tag">工程造价</span>
                 </div>
             </div>
 
@@ -973,16 +1074,24 @@
                 <div class="section-label">当前在做的事</div>
                 <div class="current-list">
                     <div class="current-item">
+                        <div class="current-icon">�</div>
+                        <span>小红书《十万个为什么》儿童科普系列</span>
+                    </div>
+                    <div class="current-item">
+                        <div class="current-icon">🤖</div>
+                        <span>开发"小红书自动图文笔记生成器"</span>
+                    </div>
+                    <div class="current-item">
+                        <div class="current-icon">🛠️</div>
+                        <span>自研本地端"焦哥工具箱"</span>
+                    </div>
+                    <div class="current-item">
                         <div class="current-icon">📱</div>
-                        <span>微信小程序【我的退休日】【亲戚称呼字典】开发</span>
+                        <span>维护微信小程序【我的退休日】【亲戚称呼字典】</span>
                     </div>
                     <div class="current-item">
-                        <div class="current-icon">📸</div>
-                        <span>小红书儿童科普图文更新</span>
-                    </div>
-                    <div class="current-item">
-                        <div class="current-icon">⚡</div>
-                        <span>AI小工具开发</span>
+                        <div class="current-icon">✍️</div>
+                        <span>公众号重启，主写AI工具测评及实战提效</span>
                     </div>
                 </div>
             </div>
@@ -995,13 +1104,6 @@
                         <div class="contact-text">
                             <div class="contact-label">邮箱</div>
                             <div class="contact-value">603592029@qq.com</div>
-                        </div>
-                    </a>
-                    <a href="tel:13520648635" class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div class="contact-text">
-                            <div class="contact-label">电话</div>
-                            <div class="contact-value">13520648635</div>
                         </div>
                     </a>
                 </div>
@@ -1030,7 +1132,8 @@
                         <div class="welcome-icon">👋</div>
                         <p class="welcome-text">
                             嗨，我是焦哥的数字分身！<br>
-                            专注于回答<strong>AI工具、智能体、Skills、工程造价</strong>相关问题。
+                            专注于回答<strong>AI工具、智能体、工程造价</strong>相关问题。<br>
+                            <span style="font-size: 12px; opacity: 0.8;">有事直接问，像朋友聊天一样~</span>
                         </p>
                     </div>
                 </div>
@@ -1148,29 +1251,55 @@
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
 
-        // API 密钥保护：Base64 编码 + 拆分存储 + 运行时动态还原
-        const _0x4a2c = ['YTMx', 'NjJj', 'N2Zl', 'YTMz', 'NGZh', 'Njhh', 'YWM5', 'NDVl', 'NzNk', 'ZjFm', 'Mzk='];
-        const _0x1b8e = (parts) => {
-            return 'sk-' + parts.map(p => atob(p)).join('');
-        };
-        const API_KEY = _0x1b8e(_0x4a2c);
-        const API_URL = 'https://api.deepseek.com/chat/completions';
+        // 从配置文件读取 API Key（安全方案）
+        const API_KEY = window.APP_CONFIG.API_KEY;
+        const API_URL = window.APP_CONFIG.API_URL;
 
-        const SYSTEM_PROMPT = `你是焦哥的数字分身。焦哥是一位有12年经验的造价工程师（安装专业），现在专注于AI智能体和工具分享。
+        const SYSTEM_PROMPT = `你是焦哥的数字分身，用来在个人主页里回答访客关于焦哥的问题。
 
-你的专长领域：
-- AI工具使用和评测
-- 智能体搭建（Coze/扣子）
-- Skills安装和使用（Claude Code、牛马AI等）
-- 工程造价咨询
-- 公众号运营
+关于焦哥：
+- 焦哥是山东聊城人，在北京12年
+- 12年造价工程师出身（安装专业），现在一边做造价主业，一边做AI自媒体
+- 公众号"焦哥AI智能体"1000+粉丝
+- 小红书"焦哥 | 诗画AI"6000+粉丝，小红书号：shihuaai2023
+- 两个儿子的爸爸（12岁、7岁）
+- 工具控，喜欢自己动手做东西
 
-重要规则：
-1. 只回答与AI工具、智能体、Skills、工程造价相关的问题
-2. 其他无关问题请回复："抱歉，我只专注于AI工具、智能体、Skills和工程造价相关话题。有这方面的问题欢迎问我！"
-3. 回答要专业、有帮助，体现焦哥的实战经验
-4. 语言简洁口语化，像朋友聊天一样
-5. 回答内容要条理清晰，适当分段，使用列表，但间距要紧凑`;
+焦哥最近在做：
+- 小红书《十万个为什么》儿童科普系列
+- AI工具开发：正在做"小红书自动图文笔记生成器"，输入公众号链接/主题/文档，AI拆解后批量生成图文笔记
+- 自研本地端"焦哥工具箱"
+- 维护两个微信小程序：《我的退休日》、《亲戚称呼字典》
+- 公众号重启，主写AI工具测评及AI实战提效
+
+焦哥擅长或长期关注：
+- AI工具使用与AI智能体搭建
+- AI儿童科普内容
+- AI工具开发
+- 建筑工程造价12年
+
+说话方式（必须严格遵守）：
+- 语气：像朋友在聊天，不像客服，更不像专家
+- 自称：用"焦哥"，不用"我"
+- 句式：短句为主，长句为辅，制造节奏感
+- 强调词：偶尔用"其实"、"更要命的是"、"直接"、"赶紧"
+- 数据：必须用具体数字，不用"很多人"、"很多"这种模糊表达
+- 避坑：不用破折号（——）、不用"第一第二"列表、不用"综上所述"这种AI腔、不说教不端着
+- 回复能说清就行，不需要每次都写成长文
+
+重要边界：
+- 只回答和焦哥本人、AI工具、智能体、工程造价相关的问题
+- 其他无关问题回复："抱歉，焦哥只聊AI工具、智能体、工程造价相关的话题，欢迎来撩！"
+- 不要编造焦哥没做过的经历
+- 不要假装知道没提供的信息（具体微信号、邮箱、家庭住址等）
+- 不知道时要明确说"这个焦哥不太确定"，建议访客通过公众号或小红书私信联系焦哥本人
+- 不替焦哥做专业承诺，不替焦哥答应能不能接项目，这类问题统一让访客联系焦哥本人
+- 所有关于焦哥的事实，必须和上述信息保持一致
+
+怎么联系焦哥：
+- 公众号：搜"焦哥AI智能体"
+- 小红书：搜"焦哥 | 诗画AI"
+- 商务合作、定制内容、AI工具咨询：走小红书或公众号私信`;
 
         let conversationHistory = [{ role: 'system', content: SYSTEM_PROMPT }];
 
@@ -1186,7 +1315,8 @@
                         <div class="welcome-icon">👋</div>
                         <p class="welcome-text">
                             嗨，我是焦哥的数字分身！<br>
-                            专注于回答<strong>AI工具、智能体、Skills、工程造价</strong>相关问题。
+                            专注于回答<strong>AI工具、智能体、工程造价</strong>相关问题。<br>
+                            <span style="font-size: 12px; opacity: 0.8;">有事直接问，像朋友聊天一样~</span>
                         </p>
                     </div>
                 `;
